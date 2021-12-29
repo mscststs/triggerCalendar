@@ -1,0 +1,100 @@
+.Calendar-container{
+  display:flex;
+  height:100%;
+  width:100%;
+  flex:auto;
+  flex-direction: column;
+  border:1px solid #ccc;
+  box-sizing: border-box;
+}
+.Calendar-header{
+  display:flex;
+  flex-direction: row;
+  height: 90px;
+  width:100%;
+  border-bottom:1px solid #ccc;
+}
+.Calendar-scroll-content{
+  position:relative;
+  display:flex;
+  flex:auto;
+  overflow:overlay;
+  width:100%;
+  background-color:#eee;
+}
+.Calendar-header-padleft{
+  width:120px;
+  height:100%;
+  flex:none;
+}
+.Calendar-header-date{
+  flex:auto;
+  height:100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+}
+.Calendar-table{
+  border-color: #ccc;
+  width:100%;
+}
+.Calendar-table td{
+  padding:0px;
+  box-sizing: border-box;
+}
+.Calendar-hour{
+  width:120px;
+  text-align: center;
+  vertical-align: middle;
+}
+.Calendar-task-container{
+  position:absolute;
+  left:0;
+  top: 0;
+  width:100%;
+  z-index: 2;
+  background-color:rgba(0,0,0,0.1)
+}
+.Calendar-task-item{
+  position:absolute;
+  background-color: white;
+  box-sizing: border-box;
+  border: 1px solid #999;
+  display:flex;
+  flex-direction: row;
+  overflow:hidden;
+}
+.Calendar-task-item-label{
+  width:7px;
+  flex:none;
+  height:100%;
+}
+.Calendar-task-item-title{
+  display: flex;
+  align-items: center;
+  flex:auto;
+  height:100%;
+  overflow:hidden;
+  align-items:center;
+  text-overflow: ellipsis;
+  white-space:wrap;
+  line-break: break-all;
+  padding:2px 3px;
+}
+.Calendar-task-item-text{
+  flex:auto;
+  width:100%;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space:wrap;
+  line-break: break-all;
+}
+
+.Calendar-task-item-label.orange{
+  background-color: #fc5531;
+}
+.Calendar-task-item-label.blue{
+  background-color: blue;
+}
