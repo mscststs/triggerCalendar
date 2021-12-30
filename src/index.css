@@ -20,7 +20,7 @@
   flex:auto;
   overflow:overlay;
   width:100%;
-  background-color:#eee;
+  background-color:#ffffff;
 }
 .Calendar-header-padleft{
   width:120px;
@@ -37,7 +37,7 @@
   font-weight: bold;
 }
 .Calendar-table{
-  border-color: #ccc;
+  border-color: #ffffff;
   width:100%;
 }
 .Calendar-table td{
@@ -55,13 +55,20 @@
   top: 0;
   width:100%;
   z-index: 2;
-  background-color:rgba(0,0,0,0.1)
+  display:flex;
+  flex-direction: row;
+  /* background-color: rgba(0,0,0,0.5); */
+}
+.Calendar-task-container-day{
+  flex:auto;
+  position:relative;
 }
 .Calendar-task-item{
   position:absolute;
   background-color: white;
   box-sizing: border-box;
   border: 1px solid #999;
+  width: 100%;
   display:flex;
   flex-direction: row;
   overflow:hidden;

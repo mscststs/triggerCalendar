@@ -91,28 +91,36 @@
             </tbody>
           </table>
           <!-- 任务区域 -->
-          <div class="Calendar-task-container">
-              ${
-                this.tasks.map((task,index)=>{
-                  let left = 120 + (this._getDays().findIndex(item=>item.key === this._getDateKey(task.startDate))) * (this._getDayColumnWidth());
-                  let top = ((task.startDate.getHours() * 60 + task.startDate.getMinutes()) / (24 * 60)) * 24 * this.timeHeight;
-                  let height = (
-                    (task.endDate.valueOf() - task.startDate.valueOf())/ (60*1000) / (24 * 60)) * 24 * this.timeHeight;
-                  const Maxheight =  24 * this.timeHeight - top;
-                  console.log(Maxheight,height)
-                  height = Math.min(Maxheight, height);
-
-                  return `
-                  <div class="Calendar-task-item" style="left:${left}px;top:${top}px;height:${height}px; width:${this._getDayColumnWidth()}px" data-title="${task.title}">
-                    <div class="Calendar-task-item-label ${["orange","blue"][index%2]}"></div>
-                    <div class="Calendar-task-item-title">
-                      <div class="Calendar-task-item-text">
-                      ${task.title}
+          <div class="Calendar-task-container" style="width:100%; ">
+            <div class="Calendar-header-padleft"></div>
+            ${
+              this._getDays().map(dayItem=>{
+                return `<div class="Calendar-task-container-day">
+                  ${this.tasks.filter(taskItem=>{
+                    return this._getDateKey(taskItem.startDate) === dayItem.key;
+                  }).map((task,index)=>{
+                    let top = ((task.startDate.getHours() * 60 + task.startDate.getMinutes()) / (24 * 60)) * 24 * this.timeHeight;
+                    let height = (
+                      (task.endDate.valueOf() - task.startDate.valueOf())/ (60*1000) / (24 * 60)) * 24 * this.timeHeight;
+                    const Maxheight =  24 * this.timeHeight - top;
+                    console.log(Maxheight,height)
+                    height = Math.min(Maxheight, height);
+  
+                    return `
+                    <div class="Calendar-task-item" style="top:${top}px;height:${height}px; data-title="${task.title}">
+                      <div class="Calendar-task-item-label ${["orange","blue"][index%2]}"></div>
+                      <div class="Calendar-task-item-title">
+                        <div class="Calendar-task-item-text">
+                        ${task.title}
+                        </div>
                       </div>
-                    </div>
-                  </div>`
-                }).join("")
-              }
+                    </div>`
+
+                  }).join("")
+                }
+                </div>`
+              }).join("")
+            }
           </div>
         </div>
       </div>`
