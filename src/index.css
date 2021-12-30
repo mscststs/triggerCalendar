@@ -37,17 +37,28 @@
   font-weight: bold;
 }
 .Calendar-table{
-  border-color: #ffffff;
+  display:flex;
+  flex-direction: column;
   width:100%;
 }
-.Calendar-table td{
+.Calendar-row{
+  flex:none;
+  display:flex;
   padding:0px;
   box-sizing: border-box;
 }
 .Calendar-hour{
   width:120px;
-  text-align: center;
-  vertical-align: middle;
+  flex:none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color:#aaa;
+  font-weight: bold;
+}
+.Calendar-empty{
+  flex:auto;
+  box-shadow: 0 -1px 0 0 #999;
 }
 .Calendar-task-container{
   position:absolute;
@@ -62,16 +73,18 @@
 .Calendar-task-container-day{
   flex:auto;
   position:relative;
+  box-shadow: -1px 0 0 0 #ccc;
 }
 .Calendar-task-item{
   position:absolute;
   background-color: white;
   box-sizing: border-box;
-  border: 1px solid #999;
+  border: 1px solid #ccc;
   width: 100%;
   display:flex;
   flex-direction: row;
   overflow:hidden;
+  border-radius: 2px;
 }
 .Calendar-task-item-label{
   width:7px;

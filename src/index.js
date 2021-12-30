@@ -77,21 +77,17 @@
         </div>
         <div class="Calendar-scroll-content">
           <!-- 表格区域 -->
-          <table width="100%" cellspacing="0" border="1" class="Calendar-table">
-            <tbody>
+          <div class="Calendar-table">
               ${
                 this._getHours().map((hourText)=>{
-                  const hourTd = `<td class="Calendar-hour">${hourText}</td>`
-                  const daysTd = this._getDays().map((dayItem)=>{
-                    return `<td></td>`
-                  }).join("")
-                  return `<tr style="height:${this.timeHeight}px">${hourTd + daysTd}</tr>`
+                  const hourTd = `<div class="Calendar-hour">${hourText}</div>`
+                  const daysTd = `<div class="Calendar-empty"></div>`
+                  return `<div class="Calendar-row" style="height:${this.timeHeight}px">${hourTd + daysTd}</div>`
                 }).join("")
               }
-            </tbody>
-          </table>
+          </div>
           <!-- 任务区域 -->
-          <div class="Calendar-task-container" style="width:100%; ">
+          <div class="Calendar-task-container" style="width:100%; height:${24 * this.timeHeight}px">
             <div class="Calendar-header-padleft"></div>
             ${
               this._getDays().map(dayItem=>{
