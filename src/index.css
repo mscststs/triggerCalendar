@@ -75,6 +75,16 @@
   position:relative;
   box-shadow: -1px 0 0 0 #ccc;
 }
+.Calendar-task-group{
+  flex:auto;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+}
+.Calendar-task-column{
+  flex:auto;
+  position:relative;
+}
 .Calendar-task-item{
   position:absolute;
   background-color: white;
@@ -117,4 +127,7 @@
 }
 .Calendar-task-item-label.blue{
   background-color: blue;
+}
+.Calendar-task-item-label.green{
+  background-color: green;
 }
